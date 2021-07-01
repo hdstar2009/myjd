@@ -46,9 +46,9 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
-  await getAuthorShareCode('');
-  await getAuthorShareCode('');
-  await getRandomCode();
+  // await getAuthorShareCode('');
+  // await getAuthorShareCode('');
+  // await getRandomCode();
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -70,8 +70,8 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       await main();
     }
   }
-  console.log(`\n\n内部互助 【赚京豆(微信小程序)-瓜分京豆】活动(优先内部账号互助(需内部cookie数量大于${$.assistNum || 4}个)，如有剩余助力次数则给作者和随机团助力)\n`)
-  for (let i = 0; i < cookiesArr.length; i++) {
+  // console.log(`\n\n内部互助 【赚京豆(微信小程序)-瓜分京豆】活动(优先内部账号互助(需内部cookie数量大于${$.assistNum || 4}个)，如有剩余助力次数则给作者和随机团助力)\n`)
+/*   for (let i = 0; i < cookiesArr.length; i++) {
     $.canHelp = true
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -96,7 +96,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
         }
       }
     }
-  }
+  } */
 })()
     .catch((e) => {
       $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -579,7 +579,7 @@ async function distributeBeanActivity() {
     $.logErr(e);
   }
 }
-function helpFriendTuan(body) {
+/* function helpFriendTuan(body) {
   return new Promise(resolve => {
     const data = {
       "activityIdEncrypted": body['activityIdEncrypted'],
@@ -614,7 +614,7 @@ function helpFriendTuan(body) {
       }
     })
   })
-}
+} */
 
 function getUserTuanInfo() {
   let body = {"paramData": {"channel": "FISSION_BEAN"}}
@@ -691,7 +691,7 @@ function openTuan() {
     })
   })
 }
-function getAuthorShareCode(url) {
+/* function getAuthorShareCode(url) {
   return new Promise(resolve => {
     const options = {
       url: `${url}?${Date.now()}`, "timeout": 10000, headers: {
@@ -743,7 +743,7 @@ async function getRandomCode() {
       }
     }
   }).catch((e) => console.log(`随机取【赚京豆-瓜分京豆】${randomCount}个邀请码异常:${e}`));
-}
+} */
 //======================赚京豆开团===========END=====
 function taskUrl(function_id, body = {}) {
   return {
